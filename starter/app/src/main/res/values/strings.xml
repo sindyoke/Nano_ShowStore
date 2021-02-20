@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="shoe_name_hint">Shoe Name</string>
+    <string name="company_name">Company Name:</string>
+    <string name="company_name_hint">Company Name</string>
+    <string name="shoe_size">Shoe Size:</string>
+    <string name="shoe_size_hint">Shoe Size</string>
+    <string name="description">Description:</string>
+    <string name="description_hint">Description</string>
+
+    <string name="fragment_detail_btn_save">Save</string>
+    <string name="fragment_detail_btn_cancel">Cancel</string>
+    <string name="fragment_detail_hint__description">Enter description</string>
+    <string name="fragment_detaile_hint_shoe_size">Enter shoe size</string>
+    <string name="fragment_detail_hint_company">Enter company</string>
+    <string name="fragment_detail_hint_name">Enter shoe name</string>
+    <string name="fragment_detail_text">Add new shoe details:</string>
+    <string name="fragment_instructions_title">Instructions for our ShoeStore</string>
+    <string name="fragment_instructions_text">This is just a placeholder for some awesome instructions in the future</string>
+    <string name="contDesc_submit">Submit</string>
+    <string name="fragment_login_hint_email">Enter email address</string>
+    <string name="fragment_login_hint_password">Enter password</string>
+    <string name="fragment_login_button_create">Create</string>
+    <string name="fragment_login_button_login">Login</string>
+    <string name="fragment_welcome_title">Welcome to our ShoeStore</string>
+    <string name="fragment_welcome_text">This is just a placeholder for some awesome explanation in the future</string>
+    <string name="fragment_welcome_button_continue">continue</string>
+    <string name="menu_logout">Logout</string>
+    <string name="fragment_instructions_button_continue">continue</string>
+
 </resources>
