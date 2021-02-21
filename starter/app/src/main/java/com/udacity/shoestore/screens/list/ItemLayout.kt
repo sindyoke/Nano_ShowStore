@@ -9,12 +9,17 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ItemListBinding
 import com.udacity.shoestore.models.Shoe
 
-class ItemLayout: LinearLayout {
+class ItemLayout : LinearLayout {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
-    private val binding: ItemListBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_list, this, false)
+    private val binding: ItemListBinding =
+        DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_list, this, false)
 
     fun loadShoe(shoe: Shoe) {
         binding.shoe = shoe

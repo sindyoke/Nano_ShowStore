@@ -9,6 +9,12 @@
             type="com.udacity.shoestore.screens.list.ListViewModel" />
     </data>
 
+    <!--    Why I used this layout:
+        I used Constraint layout, because this layout is not so simple:
+        - ScrollView cannot have children and we need FAB,
+        - and it's hard to put FAB in end bottom using LinearLayout :)
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,9 +43,7 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
-            android:layout_weight="1"
             android:onClick="@{() -> listViewModel.onAddDetail()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

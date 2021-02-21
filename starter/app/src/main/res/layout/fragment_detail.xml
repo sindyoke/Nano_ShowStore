@@ -5,6 +5,7 @@
     tools:context=".screens.detail.DetailFragment">
 
     <data>
+        <import type="com.udacity.shoestore.utils.Converter"/>
         <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
@@ -12,6 +13,11 @@
             name="listViewModel"
             type="com.udacity.shoestore.screens.list.ListViewModel" />
     </data>
+
+    <!--    Why I used this layout:
+        I used Constraint layout, because this layout would have one more step in depth
+         if we used Linear, because of the buttons
+    -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -89,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text="@={`` + shoe.size}" />
+                android:text="@={Converter.doubleToString(shoe.size)}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

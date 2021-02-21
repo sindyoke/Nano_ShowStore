@@ -9,6 +9,11 @@
             type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
+    <!--    Why I used this layout:
+        I used Constraint layout, because if we want to put those buttons next to each other,
+        we would have nested Linear Layouts.
+-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

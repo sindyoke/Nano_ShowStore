@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--    Why I used this layout:
+        Coordinator layout is fun if we want to add some animation functionality,
+         resizing header picture etc,
+        and the rest because it couldn't be simpler than this :)
+     -->
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

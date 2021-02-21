@@ -53,7 +53,7 @@ class ListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.logout) {
+        if (item.itemId == R.id.loginFragment) {
             findNavController().navigate(R.id.toLoginFragment)
             return true
         }

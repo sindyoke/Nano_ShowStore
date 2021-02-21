@@ -3,90 +3,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="com.udacity.shoestore.utils.Converter"/>
         <variable
             name="shoe"
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!--    Why I used this layout:
+        I used Constraint layout, because this layout is not so simple,
+        and also code review suggested it :)
+    -->
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/shoeItemCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="6dp"
+        app:cardBackgroundColor="@android:color/white"
         app:cardElevation="6dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="8dp"
         app:contentPadding="8dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_margin="4dp"
+            android:padding="8dp">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/shoe_name" />
-                <TextView
-                    android:id="@+id/shoe_name"
-                    android:layout_width="263dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{shoe.name}"
-                    android:hint="@string/shoe_name_hint" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+                app:barrierDirection="end"
+                app:barrierMargin="8dp"
+                app:constraint_referenced_ids="company_name_title, description_title, shoe_name_title, shoe_size_title"/>
+
+            <TextView
+                android:id="@+id/shoe_name_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/company_name" />
-                <TextView
-                    android:id="@+id/company_name"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{shoe.company}"
-                    android:hint="@string/company_name_hint" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:text="@string/shoe_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/shoe_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/shoe_size" />
-                <TextView
-                    android:id="@+id/shoe_size"
-                    android:layout_width="256dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{`` + shoe.size}"
-                    android:hint="@string/shoe_size_hint" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:hint="@string/shoe_name_hint"
+                android:text="@{shoe.name}"
+                app:layout_constraintTop_toTopOf="@id/shoe_name_title"
+                app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+            <TextView
+                android:id="@+id/company_name_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/description" />
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{shoe.description}"
-                    android:hint="@string/description_hint" />
-            </LinearLayout>
-        </LinearLayout>
+                android:text="@string/company_name"
+                app:layout_constraintStart_toStartOf="@id/shoe_name_title"
+                app:layout_constraintTop_toBottomOf="@id/shoe_name_title"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/company_name_hint"
+                android:text="@{shoe.company}"
+                app:layout_constraintTop_toTopOf="@id/company_name_title"
+                app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+            <TextView
+                android:id="@+id/shoe_size_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shoe_size"
+                app:layout_constraintStart_toStartOf="@id/shoe_name_title"
+                app:layout_constraintTop_toBottomOf="@id/company_name_title"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/shoe_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/shoe_size_hint"
+                android:text="@{Converter.doubleToString(shoe.size)}"
+                app:layout_constraintTop_toTopOf="@id/shoe_size_title"
+                app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+            <TextView
+                android:id="@+id/description_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="@id/shoe_name_title"
+                app:layout_constraintTop_toBottomOf="@id/shoe_size_title"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/description_hint"
+                android:text="@{shoe.description}"
+                app:layout_constraintTop_toTopOf="@id/description_title"
+                app:layout_constraintStart_toEndOf="@id/barrier"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
